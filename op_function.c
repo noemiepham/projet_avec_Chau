@@ -1,95 +1,50 @@
 #include "main.h"
-
+#include <stdarg.h>
 #include <stdarg.h>
 /**
- * _putchar
- */
-char _putchar(char c)
+ * _printfChar - print char
+ * 
+*/
+ int _print_char(va_list list)
 {
+  int c = 0;
 
-  return (write(1, &c, 1));
+  c = va_arg(list, int);
+  _putchar(c);
+  return (1);
 }
-
 /**
- * print_string - print char
+ * print_string - print string
  *
- *
- */
-
-int _printf(const char *format, ...)
-{
-  va_list list;
-  int count = 0;
-  int index = 0;
-  va_start(list, format);
-  while (format && format[count] != '\0')
-  {
-    count++;
-  }
-
-  while (format && format[index] != '\0')
-  {
-    if (format[index] == '%' && format[index + 1] == 'c')
-    {
-      _putchar(va_arg(list, int));
-      index++;
-    }
-    else
-    {
-
-      _putchar(format[index]);
-    }
-    index++;
-  }
-  va_end(list);
-}
-
-/**
  *
  */
 
 #include <stdarg.h>
 
-char _putchar(char c)
+int _print_string(va_list list)
 {
-  return (write(1, &c, 1));
-}
-
-int _printf(const char *format, ...)
-{
-  va_list list;
   int count = 0;
-  int index = 0;
-  char *array;
-
-  va_start(list, format);
-  array = va_arg(list, char *);
-  while (format && format[count] != '\0')
+  char *string_Array;
+  string_Array = va_arg(list, char *);
+  if (string_Array == NULL)
   {
+    string_Array = "(NULL)"
+  }
+
+  while (string_Array[count]!= '\0')
+  {
+    _putchar(string_Array[count]);
     count++;
   }
-
-  while (format && format[index] != '\0')
-  {
-    if (format[index] == '%' && format[index + 1] == 's')
-    {
-      for (int j = 0; array[j]; j++)
-      {
-        _putchar(array[j]);
-      }
-    }
-    else
-    {
-
-      _putchar(format[index + 1]);
-    }
-    index++;
-  }
-  va_end(list);
+  return(count);
 }
-
-int main(void)
+/**
+ * print_percent- print %
+ *
+ *
+ */
+int _print_percent(va_list list)
 {
-  _printf("String:[%s]\n", "I am a string !");
-  return (0);
-}
+	(void)list;
+	return (write(1, "%", 1));
+};
