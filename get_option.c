@@ -5,25 +5,24 @@
 *@s : number
 *Return: a pointer to the function ops
 */
-int (*get_op_func(char s)) (va_list)
+int (*get_op_func(const char *format))(va_list)
 {
-    op_t ops[] = {
-        {'c', _print_char}
-        {'s', _print_string}
-        {'%', _print_percent}
-        {'d', _print_number}
-        {'i', _print_number}
+    int i;
+    func_t p[] = {
+        {"c", _print_char},
+        {"s", _print_string},
+        {"%", _print_percent},
+        //{"d", _print_number},
+       // {"i", _print_number},
         {NULL, NULL}
     };
-    int i = 0;
 
-	while (ops[i].t;)
+	for (i = 0; p[i].t; i++)
 	{
-		if (*fomart == *(p[i].t))
+		if (*format == *(p[i].t))
         {
-            return (ops[i].f)
+            return (p[i].f);
         }
-		i++;
 	}
 return (NULL);
 }

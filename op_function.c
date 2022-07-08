@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdarg.h>
-#include <stdarg.h>
 /**
  * _printfChar - print char
  * 
@@ -28,7 +27,7 @@ int _print_string(va_list list)
   string_Array = va_arg(list, char *);
   if (string_Array == NULL)
   {
-    string_Array = "(NULL)"
+    string_Array = "(NULL)";
   }
 
   while (string_Array[count]!= '\0')
@@ -47,4 +46,4 @@ int _print_percent(va_list list)
 {
 	(void)list;
 	return (write(1, "%", 1));
-};
+}

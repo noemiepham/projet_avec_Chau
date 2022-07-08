@@ -1,16 +1,13 @@
-#include <unistd.h>
-#include <stdarg.h>
-#include <stdio.h>
 #include "main.h"
-#include <unistd.h>
 #include <stdarg.h>
-#include <stdio.h>
-
+/**
+ * 
+ * 
+ */
 int _printf(const char *format, ...)
 {
-  unsigned int i;
-  int arg;
-  int print_string;
+  unsigned int i = 0;
+  int print_string = 0;
   int (*f)(va_list);
   va_list list;
 
@@ -34,9 +31,9 @@ int _printf(const char *format, ...)
         }
         else
         {
-          f = get_op_func(&format[i + 1]).
+          f = get_op_func(&format[i + 1]);
           print_string += f(list);
-          i++
+          i++;
         }
       }
     }
