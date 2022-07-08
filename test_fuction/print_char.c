@@ -6,16 +6,16 @@ char _putchar(char c)
 {
     return (write(1, &c, 1));
 }
-int _printf(const char *format, ...)
+int _printfChar(const char *format, ...)
 {
   va_list list;
-  int count = 0;
+ /*  int count = 0; */
   int index = 0;
   va_start(list, format);
-  while (format && format[count] != '\0')
+/*   while (format && format[count] != '\0')
   {
     count++;
-  }
+  } */
 
   while (format && format[index] != '\0')
   {
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 }
 
 
-int main(void)
+ int main(void)
 {
 
     int len;
@@ -43,8 +43,10 @@ int main(void)
     unsigned int ui;
     void *addr;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
+    len = _printf("Let's try to printf a simple %c sentence.\n", 'L');
+       printf("_________________________________________________\n");
+    len2 = printf("Let's try to printf a simple  %c sentence.\n", 'L');
+    printf("_________________________________________________\n");
      _printf("Character:[%c]\n", 'H');
     return (0);
-}
+} 
