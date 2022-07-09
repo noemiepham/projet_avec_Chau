@@ -1,46 +1,42 @@
 #include "main.h"
 #include <stdarg.h>
 /**
- * _printfChar - print char
- * 
+ * _print_char - print char
+ * @list : struct function
+ * Return: 1 si is faill
 */
- int _print_char(va_list list)
+int _print_char(va_list list)
 {
-  int c = 0;
+	int c = 0;
 
-  c = va_arg(list, int);
-  _putchar(c);
-  return (1);
+	c = va_arg(list, int);
+	_putchar(c);
+	return (1);
 }
 /**
- * print_string - print string
- *
- *
+ * _print_string - print string
+ * @list : struct function
+ * Return: string
  */
-
-#include <stdarg.h>
 
 int _print_string(va_list list)
 {
-  int count = 0;
-  char *string_Array;
-  string_Array = va_arg(list, char *);
-  if (string_Array == NULL)
-  {
-    string_Array = "(NULL)";
-  }
+	char *array = va_arg(list, char *);
+	int i;
 
-  while (string_Array[count]!= '\0')
-  {
-    _putchar(string_Array[count]);
-    count++;
-  }
-  return(count);
+	if (array == NULL)
+	array = "(null)";
+	for (i = 0; array[i] != '\0'; i++)
+	{
+		_putchar(array[i]);
+	}
+	return (i);
 }
+
 /**
- * print_percent- print %
- *
- *
+ * _print_percent - print %
+ * @list: stocker dans list
+ * Return: write %
  */
 int _print_percent(va_list list)
 {
